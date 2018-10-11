@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Search Result</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/search-result.css">
+	<link href="/css/search.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	if !products.length
+		div.s009
+			h2
+				i No products were found
+				img(src="/favicon.ico" alt="No products were found" style="width: 100px; margin-left: 20px;")
+				p(style="display: block; text-align: center")
+					a(href='/')
+						i(class="fa fa-chevron-left")
+						i=' Back'
+	else
+		div.limiter
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table">
+						<div class="row header">
+							<div class="cell productId">Product ID</div>
+							<div class="cell">Image</div>
+							<div class="cell">Detail</div>
+						</div>
+						each product in products
+							div.row
+								div.cell
+									a(href=product.productUrl target="_blank")= product.productId
+								div.cell
+									image(src=product.imageUrl style="width: 100px; height: 100px; margin: 10px 0; border-radius: 10px;")
+								div.cell
+									p
+										i(class='fa fa-truck icon')
+										span= 'Has Epacket'
+									p
+										span
+											i(class='fa fa-star icon star-color')
+											span= product.evaluateScore + ' product evaluate score'
+									p
+										span
+											i(class='fa fa-trophy icon trophy-color')
+											span= product.shippingScore + ' shipping score'
+						</div>
+					</div>
+				</div>
+			</div>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/select2.min.js"></script>
+	<script src="/js/search-result.js"></script>
+	script.
+		$(document).ready(function (){
+			console.log('Document ready');
+		});
+</body>
+</html>
